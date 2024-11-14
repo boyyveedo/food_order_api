@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+</head>
+
+<body>
+    <h1>Shopping Cart</h1>
+    <h3>Kolabbb Product</h3>
+    <p>Price: $50.00</p>
+    <p>Quantity: 1</p>
+
+    <!-- Button to trigger checkout -->
+    <button id="checkout-button">Proceed to Checkout</button>
+
+    <script>
+        document.getElementById('checkout-button').addEventListener('click', async function () {
+            try {
+                // Assume userId is available (you can fetch it as needed)
+                const userId = "user123"; // Replace with actual user ID
+
+                // Send POST request to create Stripe Checkout session
+                const response = await fetch('http://localhost:3030/api/v1/checkout', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ userId }) // Pass userId or order details
+                });
+
+                const data = await response.json();
+
+                if (data.sessionUrl) {
+                    // Redirect to the Stripe Checkout session URL
+                    window.location.href = data.sessionUrl;
+                } else {
+                    alert("Checkout session creation failed. Please try again.");
+                }
+            } catch (error) {
+                console.error("Error during checkout:", error);
+                alert("An error occurred during checkout. Please try again.");
+            }
+        });
+    </script>
+</body>
+
+</html>
