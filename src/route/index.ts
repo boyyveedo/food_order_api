@@ -3,6 +3,8 @@ import { registerUser, loginUserController, getUserByIdController, getAllUsersCo
 import { createOrderController } from "../controller/order.controller";
 import { getFoodItemsController, createFoodController } from "../controller/food.controller";
 import { createCheckoutSessionController } from "../controller/payment.controller";
+export * from './vendorRoute'
+export * from './adminRoute'
 export const routes = Router()
 
 

@@ -3,7 +3,7 @@ import { connectDB } from './database/mongoDb';
 import { port } from './config/config';
 import bodyParser from 'body-parser';
 import cors from 'cors'
-import { routes } from './route';
+import { AdminRoute, VendorRoute } from './route';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -16,11 +16,15 @@ app.use(bodyParser.json());
 
 app.set('view engine', 'ejs')
 
-app.use('/api/v1', routes)
+app.use('/vendor', VendorRoute)
+app.use('/admin', AdminRoute)
 
-app.get('/', (req: Request, res: Response) => {
-    res.render('index.ejs')
-})
+
+// app.use('/api/v1', routes)
+
+// app.get('/', (req: Request, res: Response) => {
+//     res.render('index.ejs')
+// })
 
 
 
