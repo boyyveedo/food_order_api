@@ -2,7 +2,6 @@ import { Router } from "express";
 import express, { Request, Response, NextFunction } from "express";
 import { VendorLoginController } from "../controller";
 
-
 const router = Router()
 
 

@@ -29,18 +29,6 @@ export async function createOrder(userId: mongoose.Schema.Types.ObjectId, items:
     return order
 }
 
-// }
-// export async function createOrder(userId: mongoose.Types.ObjectId, items: OrderItem[]): Promise<IOrder> {
-//     try {
-//         const order = new Order({ user: userId, items });
-//         await order.save();
-//         return order;
-//     } catch (error) {
-//         console.error("Error creating order:", error);
-//         throw error;
-//     }
-// }
-
 
 
 

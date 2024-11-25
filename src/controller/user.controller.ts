@@ -33,7 +33,7 @@ export async function loginUserController(req: Request, res: Response): Promise<
             return res.status(401).json({ msg: "invalid credentials please login" })
         }
         return res.status(201).json({
-            msg: " logged in sucessfully",
+            msg: " logged in sucessfully",  
             data: {
                 fullName: user.fullName,
                 email: user.email,

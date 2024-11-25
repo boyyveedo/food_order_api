@@ -17,7 +17,7 @@ export async function createFood(foodData: Partial<IFoodItem>): Promise<IFoodIte
     try {
         // Ensure items and totalPrice are provided
         if (!foodData.name || !foodData.description) {
-            console.error("Missing required fields: items or totalPrice");
+            console.error("Missing required fields: items or totalPrice"); 
             return null;
         }
 

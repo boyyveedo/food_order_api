@@ -1,7 +1,7 @@
 import Stripe from "stripe";
 import { STRIPE_SECRET_KEY } from "../config/config";
 
-// Initialize Stripe with your secret key
+
 if (!STRIPE_SECRET_KEY) {
     throw new Error("Stripe secret key is not defined in the environment variables");
 }
@@ -19,14 +19,14 @@ export async function createStripeCheckout(userId: string): Promise<string | nul
                     price_data: {
                         currency: "usd",
                         product_data: { name: "Order #" + userId },
-                        unit_amount: 2000, // 2000 cents = $20.00 (example price)
+                        unit_amount: 2000, // 
                     },
                     quantity: 1,
                 },
             ],
             mode: "payment",
-            success_url: "http://localhost:3030/complete", // Redirect after success
-            cancel_url: "http://localhost:3030/cancel", // Redirect after cancellation
+            success_url: "http://localhost:3030/complete", 
+            cancel_url: "http://localhost:3030/cancel", //  
             metadata: { userId }, // Store userId in metadata for reference
         });
 
